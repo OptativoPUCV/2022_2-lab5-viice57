@@ -602,3 +602,14 @@ treemap.c:58:38: error: ‘TreeNode’ has no member named ‘key’
 cc1: all warnings being treated as errors
 Compilation failed
 b4125b2
+Sun 25 Sep 2022 05:05:09 AM UTC: 
+ treemap.c | 11 +----------
+ 1 file changed, 1 insertion(+), 10 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:50:14: error: unused variable ‘aux’ [-Werror=unused-variable]
+   50 |   TreeNode * aux = tree->root;
+      |              ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+93812bf
