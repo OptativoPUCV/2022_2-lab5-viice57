@@ -237,3 +237,23 @@ Sun 25 Sep 2022 04:16:26 AM UTC:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 e142e12
+Sun 25 Sep 2022 04:17:38 AM UTC: 
+ treemap.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:95:19: error: initialization of ‘TreeMap *’ from incompatible pointer type ‘Pair *’ [-Werror=incompatible-pointer-types]
+   95 |   TreeMap * aux = tree->current->pair;
+      |                   ^~~~
+treemap.c:96:24: error: ‘TreeMap’ has no member named ‘key’
+   96 |   if(is_equal(tree, aux->key, key) == 1) {
+      |                        ^~
+treemap.c:98:33: error: ‘TreeMap’ has no member named ‘key’
+   98 |   } else if(tree->lower_than(aux->key, key) == 1) {
+      |                                 ^~
+treemap.c:103:10: error: returning ‘TreeMap *’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  103 |   return aux;
+      |          ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+729367d
