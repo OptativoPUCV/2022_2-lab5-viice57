@@ -100,6 +100,8 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
   TreeNode * aux = tree->root;
   tree->current = aux;
   
+  if (is_equal(tree, aux->pair->key, key)) return aux->pair;
+  
   if(tree->lower_than(aux->pair->key, key)) {
     tree->current = aux->right;
   } else if(tree->lower_than(key, aux->pair->key)) { //si lo buscado es menor a nodo raiz
@@ -107,8 +109,6 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
   } else {
     return NULL;
   }
-    
-  return aux->pair;
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
