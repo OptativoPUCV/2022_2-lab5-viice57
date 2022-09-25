@@ -291,3 +291,16 @@ Sun 25 Sep 2022 04:20:31 AM UTC:
  tests:  8|7
 total_score: 5/70
 be59fe1
+Sun 25 Sep 2022 04:25:01 AM UTC: 
+ treemap.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:58:40: error: ‘TreeNode’ has no member named ‘key’
+   58 |   } else if(tree->lower_than(tree->root->key, node->key) == 1) {
+      |                                        ^~
+treemap.c:58:51: error: ‘TreeNode’ has no member named ‘key’
+   58 |   } else if(tree->lower_than(tree->root->key, node->key) == 1) {
+      |                                                   ^~
+Compilation failed
+1ac836e
