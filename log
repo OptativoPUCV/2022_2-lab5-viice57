@@ -565,3 +565,23 @@ treemap.c:58:38: error: ‘TreeNode’ has no member named ‘key’
 cc1: all warnings being treated as errors
 Compilation failed
 9e6dc12
+Sun 25 Sep 2022 05:02:08 AM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:50:19: error: initialization of ‘TreeMap *’ from incompatible pointer type ‘Pair *’ [-Werror=incompatible-pointer-types]
+   50 |   TreeMap * aux = searchTreeMap(tree, key);
+      |                   ^~~~~~~~~~~~~
+treemap.c:55:16: error: assignment to ‘TreeNode *’ from incompatible pointer type ‘TreeMap *’ [-Werror=incompatible-pointer-types]
+   55 |   node->parent = aux;
+      |                ^
+treemap.c:56:26: error: ‘TreeMap’ has no member named ‘key’
+   56 |   if(tree->lower_than(aux->key, key)) {
+      |                          ^~
+treemap.c:58:38: error: ‘TreeMap’ has no member named ‘key’
+   58 |   } else if(tree->lower_than(key, aux->key)) {
+      |                                      ^~
+cc1: all warnings being treated as errors
+Compilation failed
+ada6272
