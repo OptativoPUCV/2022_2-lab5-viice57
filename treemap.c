@@ -123,6 +123,8 @@ Pair * nextTreeMap(TreeMap * tree) {
   
   TreeNode *aux = tree->current;
   TreeNode *parentNode = aux->parent;
+
+  if(!parentNode) return NULL;
     
   if(!aux->right) {
     while(parentNode) {
@@ -131,7 +133,6 @@ Pair * nextTreeMap(TreeMap * tree) {
       } else break;
     }
     
-    if(!parentNode) return NULL;
     tree->current = parentNode;
   } else if(aux->right) {
       tree->current = minimum(aux->right);
