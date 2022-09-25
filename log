@@ -703,3 +703,24 @@ Sun 25 Sep 2022 06:11:14 AM UTC:
  tests:  15|4
 total_score: 20/70
 d1cf0ba
+Sun 25 Sep 2022 06:17:20 AM UTC: 
+ treemap.c | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:129:12: error: expected ‘(’ before ‘!’ token
+  129 |   } else if!(aux->right) {
+      |            ^
+      |            (
+treemap.c:129:12: error: statement with no effect [-Werror=unused-value]
+  129 |   } else if!(aux->right) {
+      |            ^~~~~~~~~~~~~
+treemap.c:125:13: error: unused variable ‘parentNode’ [-Werror=unused-variable]
+  125 |   TreeNode *parentNode = aux->parent;
+      |             ^~~~~~~~~~
+treemap.c:143:1: error: control reaches end of non-void function [-Werror=return-type]
+  143 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+96d0052
