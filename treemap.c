@@ -93,6 +93,7 @@ void eraseTreeMap(TreeMap * tree, void* key){
 }
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
+  if(!tree || !tree->root) return NULL;
   tree->current = tree->root;
 
   while(tree->current) {
