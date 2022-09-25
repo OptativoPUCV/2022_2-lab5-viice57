@@ -257,3 +257,26 @@ treemap.c:103:10: error: returning ‘TreeMap *’ from a function with incompat
 cc1: all warnings being treated as errors
 Compilation failed
 729367d
+Sun 25 Sep 2022 04:18:52 AM UTC: 
+ treemap.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:95:19: error: initialization of ‘TreeMap *’ from incompatible pointer type ‘TreeNode *’ [-Werror=incompatible-pointer-types]
+   95 |   TreeMap * aux = tree->current;
+      |                   ^~~~
+treemap.c:96:24: error: ‘TreeMap’ has no member named ‘pair’
+   96 |   if(is_equal(tree, aux->pair->key, key) == 1) {
+      |                        ^~
+treemap.c:98:33: error: ‘TreeMap’ has no member named ‘pair’
+   98 |   } else if(tree->lower_than(aux->pair->key, key) == 1) {
+      |                                 ^~
+treemap.c:103:13: error: ‘TreeMap’ has no member named ‘pair’
+  103 |   return aux->pair;
+      |             ^~
+treemap.c:104:1: error: control reaches end of non-void function [-Werror=return-type]
+  104 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+21e1195
