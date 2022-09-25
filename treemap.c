@@ -126,7 +126,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     
   if (aux->right) {
     tree->current = minimum(aux->right);
-  } else if!(aux->right) {
+  } else if(!aux->right) {
     while(parentNode) {
       if(tree->lower_than(parentNode->pair->key, aux->pair->key)) {
         parentNode = parentNode->parent;
