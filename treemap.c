@@ -52,7 +52,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
   tree->current = tree->root;
   if(is_equal(tree, tree->root->key, key) == 1) {
     tree->current = tree->root;
-  } else if(lower_than(tree->root->key, key) == 1) {
+  } else if(lower_than_int(tree->root->key, key) == 1) {
     tree->current = tree->root->right;
   } else {
     tree->current = tree->root->left;
