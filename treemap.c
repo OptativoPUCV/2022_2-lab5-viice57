@@ -92,15 +92,14 @@ void eraseTreeMap(TreeMap * tree, void* key){
 Pair * searchTreeMap(TreeMap * tree, void* key) {
   if(!tree) return NULL;
 
-  TreeMap * aux = tree->current;
-  if(is_equal(tree, aux->pair->key, key) == 1) {
+  if(is_equal(tree, tree->current->pair->key, key) == 1) {
     tree->current = tree->root;
-  } else if(tree->lower_than(aux->pair->key, key) == 1) {
+  } else if(tree->lower_than(tree->current->pair->key, key) == 1) {
     tree->current = tree->current->right;
   } else {
     tree->current = tree->current->left;
   }
-  return aux->pair;
+  return tree->current->pair;
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
