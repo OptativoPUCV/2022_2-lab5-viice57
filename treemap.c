@@ -123,10 +123,10 @@ Pair * nextTreeMap(TreeMap * tree) {
   
   TreeNode *aux = tree->current;
   TreeNode *parentNode = aux->parent;
-
-  if(!parentNode) return NULL;
     
   if(!aux->right) {
+    if(!parentNode) return NULL;
+    
     while(parentNode) {
       if(tree->lower_than(parentNode->pair->key, aux->pair->key)) {
         parentNode = parentNode->parent;
