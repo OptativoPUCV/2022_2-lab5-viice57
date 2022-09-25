@@ -50,7 +50,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
   if(!tree || !tree->root) return;
 
   TreeNode * aux = tree->root;
-  //TreeNode * parent = NULL;
+  TreeNode * parent = NULL;
   TreeNode * node = createTreeNode(key, value);
 
   parent = aux;
