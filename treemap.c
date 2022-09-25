@@ -100,10 +100,10 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
   TreeNode * aux = tree->root;
   tree->current = aux;
   
-  if(tree->lower_than(aux->pair->key, key)) { //si lo buscado es mayor q nodo raiz
-    aux = aux->right;
+  if(tree->lower_than(aux->pair->key, key)) {
+    tree->current = aux->right;
   } else if(tree->lower_than(key, aux->pair->key)) { //si lo buscado es menor a nodo raiz
-    aux = aux->left;
+    tree->current = aux->left;
   } else {
     return NULL;
   }
