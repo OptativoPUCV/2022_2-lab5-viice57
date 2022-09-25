@@ -101,11 +101,12 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
   while(aux) {
       if (is_equal(tree, tree->current->pair->key, key)) return aux->pair;
       if(tree->lower_than(aux->pair->key, key)) {
-        tree->current = aux->right;
-      } else { //si lo buscado es menor a nodo raiz
-        tree->current = aux->left;
+        tree->current = tree->current->right;
+      } else {
+        tree->current = tree->current->left;
       }
   }
+  
   return NULL;
 }
 
