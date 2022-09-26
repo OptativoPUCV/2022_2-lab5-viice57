@@ -19,20 +19,20 @@ struct TreeMap {
 };
 
 int is_equal(TreeMap* tree, void* key1, void* key2){
-  if(tree->lower_than(key1,key2) == 0 && tree->lower_than(key2,key1) == 0) return 1;
+  if(tree->lower_than(key1, key2) == 0 && tree->lower_than(key2, key1) == 0) return 1;
   else return 0;
 }
 
 
 TreeNode * createTreeNode(void * key, void * value) {
-  TreeNode * new = (TreeNode *) malloc(sizeof(TreeNode));
+  TreeNode * newNode = (TreeNode *) malloc(sizeof(TreeNode));
   if (!new) return NULL;
-  new->pair = (Pair *) malloc(sizeof(Pair));
-  new->pair->key = key;
-  new->pair->value = value;
-  new->parent = new->left = new->right = NULL;
+  newNode->pair = (Pair *) malloc(sizeof(Pair));
+  newNode->pair->key = key;
+  newNode->pair->value = value;
+  newNode->parent = newNode->left = newNode->right = NULL;
   
-  return new;
+  return newNode;
 }
 
 TreeMap * createTreeMap(int (*lower_than) (void * key1, void * key2)) {
@@ -146,11 +146,9 @@ Pair * upperBound(TreeMap * tree, void* key) {
   while(tree->current) {
     if(tree->lower_than(tree->current->pair->key, key)) {
       if(!tree->current->right) break;
-      
       tree->current = tree->current->right;
     } else {
       if(!tree->current->left) break;
-
       tree->current = tree->current->left;
       ub_node = tree->current->parent;
     }
