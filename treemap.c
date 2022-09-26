@@ -106,22 +106,6 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
-  /*TreeNode *ub_node;
-  Pair *flag;
-
-  if(!searchTreeMap(tree, key)) {
-    firstTreeMap(tree);
-    
-    while((flag = nextTreeMap(tree))) {
-      if(tree->lower_than(tree->current->pair->key, key) == 0) break;
-    }
-
-    if(!flag) return NULL;
-  } 
-  ub_node = tree->current;
-    
-  if(!ub_node) return NULL;
-  return ub_node->pair;*/
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
