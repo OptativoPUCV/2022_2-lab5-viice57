@@ -84,7 +84,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
   TreeNode *ub_node;
   Pair *flag;
 
-  if(!searchTreeMap(tree, key)) {
+  if(searchTreeMap(tree, key) == NULL) {
     firstTreeMap(tree);
     
     while((flag = nextTreeMap(tree)) != NULL) {
