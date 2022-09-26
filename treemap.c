@@ -6,46 +6,72 @@
 typedef struct TreeNode TreeNode;
 
 struct TreeNode {
-    Pair* pair;
-    TreeNode * left;
-    TreeNode * right;
-    TreeNode * parent;
+  Pair* pair;
+  TreeNode * left;
+  TreeNode * right;
+  TreeNode * parent;
 };
 
 struct TreeMap {
-    TreeNode * root;
-    TreeNode * current;
-    int (*lower_than) (void* key1, void* key2);
+  TreeNode * root;
+  TreeNode * current;
+  int (*lower_than) (void* key1, void* key2);
 };
 
 int is_equal(TreeMap* tree, void* key1, void* key2){
-    if(tree->lower_than(key1,key2) == 0 &&  
-        tree->lower_than(key2,key1) == 0) return 1;
-    else return 0;
+  if(tree->lower_than(key1,key2) == 0 &&  
+    tree->lower_than(key2,key1) == 0) return 1;
+  else return 0;
 }
 
 
 TreeNode * createTreeNode(void* key, void * value) {
-    TreeNode * new = (TreeNode *) malloc(sizeof(TreeNode));
-    if (!new) return NULL;
-    new->pair = (Pair *) malloc(sizeof(Pair));
-    new->pair->key = key;
-    new->pair->value = value;
-    new->parent = new->left = new->right = NULL;
+  TreeNode * new = (TreeNode *) malloc(sizeof(TreeNode));
+  if (!new) return NULL;
+  new->pair = (Pair *) malloc(sizeof(Pair));
+  new->pair->key = key;
+  new->pair->value = value;
+  new->parent = new->left = new->right = NULL;
   
-    return new;
+  return new;
 }
 
 TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
-    TreeMap * new = (TreeMap *) malloc(sizeof(TreeMap));
-    new->root = NULL;
-    new->current = NULL;
-    new->lower_than = lower_than;
+  TreeMap * new = (TreeMap *) malloc(sizeof(TreeMap));
+  new->root = NULL;
+  new->current = NULL;
+  new->lower_than = lower_than;
   
-    return new;
+  return new;
 }
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
+  TreeNode * aux = tree->root;
+  
+  if(searchTreeMap(tree, key)) return; 
+  
+  while(aux) {
+    if(tree->lower_than(key, aux->pair->key)) {
+      tree->root = aux->left;
+    } else if(tree->lower_than(aux->pair->key, key)){
+      tree->root = aux->right;
+    } else return;
+  }
+  
+  TreeNode * newNode = createTreeNode(key, value);
+  newNode->parent = aux;
+  int resultado = tree->lower_than(key,aux->pair->key);
+  if(aux) {
+    if(tree->lower_than(key, aux->pair->key)) {
+      aux->left = newNode;
+    } else if(tree->lower_than(aux->pair->key, key)) {
+      aux->right = newNode;
+    } 
+    
+  }
+  if(!aux) tree->root = newNode;
+  tree->current = newNode;
+  return;
 }
 
 TreeNode * minimum(TreeNode * x) {
