@@ -111,7 +111,7 @@ Pair * nextTreeMap(TreeMap * tree) {
   
   TreeNode *aux = tree->current;
     
-  if(aux->right) {
+  if(aux->right != NULL) {
     tree->current = minimum(aux->right);
   } else {
     TreeNode *parentNode = aux->parent;
