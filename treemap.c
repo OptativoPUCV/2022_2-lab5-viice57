@@ -92,16 +92,16 @@ Pair * upperBound(TreeMap * tree, void* key) {
     if (tree->lower_than(tree->current->pair->key , key) == 0){
       if (tree->current->left == NULL) break;
       tree->current = tree->current->left;
-      upBo_node = tree->current->parent;
+      ub_node = tree->current->parent;
       continue;
     }
   }
 
-  if (tree->lower_than(tree->current->pair->key , key) == 1 && upBo_node != NULL){
-        return upBo_node->pair;
+  if (tree->lower_than(tree->current->pair->key , key) == 1 && ub_node != NULL){
+        return ub_node->pair;
     }
 
-  if (upBo_node == NULL) return NULL;
+  if (ub_node == NULL) return NULL;
   
   return tree->current->pair;
 }
